@@ -125,6 +125,23 @@ public class DishServiceImpl implements DishService {
         return dishVO;
     }
 
+
+    /**
+     * 修改菜品状态
+     * @param status
+     * @param id
+     */
+    @Override
+    public void status(Integer status, Long id) {
+        //封装
+        Dish dish = new Dish();
+        dish.setStatus(status);
+        dish.setId(id);
+
+        //调用之前写的更新操作
+        dishMapper.update(dish);
+    }
+
     /**
      * 修改菜品
      * @param dishDTO
