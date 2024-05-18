@@ -105,4 +105,19 @@ public class DishController {
         return Result.success();
     }
 
+
+    /**
+     * 根据分类id查询菜品
+     *
+     * 添加套餐要用
+     *
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/list")
+    @ApiOperation("根据分类id查询菜品")
+    public Result<List<Dish>> getByCategoryId(Integer categoryId) {
+        List<Dish> dishs = dishService.getByCategoryId(categoryId);
+        return Result.success(dishs);
+    }
 }
