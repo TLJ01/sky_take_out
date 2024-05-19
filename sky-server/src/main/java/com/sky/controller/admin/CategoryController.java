@@ -6,11 +6,8 @@ import com.sky.entity.Category;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.CategoryService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +16,8 @@ import java.util.List;
 /**
  * Created by TanLiangJie
  * Time:2024/5/15 下午4:35
- *
- *分类控制器
+ * <p>
+ * 分类控制器
  */
 @RestController
 @Slf4j
@@ -32,6 +29,7 @@ public class CategoryController {
 
     /**
      * 新增
+     *
      * @param categoryDTO
      * @return
      */
@@ -44,31 +42,34 @@ public class CategoryController {
 
     /**
      * 获取列表
+     *
      * @param categoryPageQueryDTO
      * @return
      */
     @GetMapping("/page")
     @ApiOperation("分类分页查询")
-    public Result<PageResult>page(CategoryPageQueryDTO categoryPageQueryDTO) {
+    public Result<PageResult> page(CategoryPageQueryDTO categoryPageQueryDTO) {
         PageResult pageResult = categoryService.page(categoryPageQueryDTO);
         return Result.success(pageResult);
     }
 
     /**
      * 分类状态
+     *
      * @param status
      * @param id
      * @return
      */
     @PostMapping("/status/{status}")
     @ApiOperation("分类状态")
-    public Result status(@PathVariable Integer status,Long id) {
-        categoryService.status(status,id);
+    public Result status(@PathVariable Integer status, Long id) {
+        categoryService.status(status, id);
         return Result.success();
     }
 
     /**
      * 更新
+     *
      * @param categoryDTO
      * @return
      */
@@ -82,6 +83,7 @@ public class CategoryController {
 
     /**
      * 删除分类
+     *
      * @param id
      * @return
      */
@@ -94,6 +96,7 @@ public class CategoryController {
 
     /**
      * 根据类型查询
+     *
      * @param type
      * @return
      */
@@ -103,5 +106,6 @@ public class CategoryController {
         List<Category> list = categoryService.getByType(type);
         return Result.success(list);
     }
+
 
 }

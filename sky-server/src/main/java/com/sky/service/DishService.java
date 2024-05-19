@@ -31,6 +31,8 @@ public interface DishService {
      */
     void delete(List<Long> ids);
 
+    List<Dish> getByCategoryId(Integer categoryId);
+
     /**
      * 修改菜品
      * @param dishDTO
@@ -56,5 +58,5 @@ public interface DishService {
      * @param categoryId
      * @return
      */
-    List<Dish> getByCategoryId(Integer categoryId);
+    List<Dish> getByCategoryId(Long categoryId);
 }

@@ -34,12 +34,6 @@ public interface DishFlavorMapper {
     void deleteByIds(List<Long> ids);
 
     /**
-     * 修改口味表
-     * @param flavors
-     */
-    void update(List<DishFlavor> flavors);
-
-    /**
      * 获取口味
      * @param id
      */
