@@ -99,4 +99,11 @@ public class SetMealController {
         setMealService.update(setmealDTO);
         return Result.success();
     }
+
+
+    @PostMapping("/status/{status}")
+    public Result status(@PathVariable Integer status,Long id){
+        setMealService.status(status,id);
+        return Result.success();
+    }
 }
